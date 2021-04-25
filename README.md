@@ -1,26 +1,13 @@
-# Solidity Template
+# Lottery On Fire
+This is a simple BEP-20 token which is similar to ERC-20 token. Deployed this token on Binance Smart Chain(BSC)
 
-My favourite setup for writing Solidity smart contracts.
-
-- [Hardhat](https://github.com/nomiclabs/hardhat): compile and run the smart contracts on a local development network
-- [TypeChain](https://github.com/ethereum-ts/TypeChain): generate TypeScript types for smart contracts
-- [Ethers](https://github.com/ethers-io/ethers.js/): renowned Ethereum library and wallet implementation
-- [Waffle](https://github.com/EthWorks/Waffle): tooling for writing comprehensive smart contract tests
-- [Solhint](https://github.com/protofire/solhint): linter
-- [Solcover](https://github.com/sc-forks/solidity-coverage): code coverage
-- [Prettier Plugin Solidity](https://github.com/prettier-solidity/prettier-plugin-solidity): code formatter
-
-This is a GitHub template, which means you can reuse it as many times as you want. You can do that by clicking the "Use this
-template" button at the top of the page.
-
-## Usage
-
+In this token certain percentage of transaction is hold by the smart contract for future development.
 ### Pre Requisites
 
 Before running any command, make sure to install dependencies:
 
 ```sh
-$ yarn install
+$ npm i
 ```
 
 ### Compile
@@ -28,7 +15,7 @@ $ yarn install
 Compile the smart contracts with Hardhat:
 
 ```sh
-$ yarn compile
+$ npm run compile
 ```
 
 ### TypeChain
@@ -36,7 +23,7 @@ $ yarn compile
 Compile the smart contracts and generate TypeChain artifacts:
 
 ```sh
-$ yarn typechain
+$ npm run typechain
 ```
 
 ### Lint Solidity
@@ -44,7 +31,7 @@ $ yarn typechain
 Lint the Solidity code:
 
 ```sh
-$ yarn lint:sol
+$ npm run lint:sol
 ```
 
 ### Lint TypeScript
@@ -52,15 +39,15 @@ $ yarn lint:sol
 Lint the TypeScript code:
 
 ```sh
-$ yarn lint:ts
+$ npm run lint:ts
 ```
 
 ### Test
 
-Run the Mocha tests:
+Run the Chai tests:
 
 ```sh
-$ yarn test
+$ npm run test
 ```
 
 ### Coverage
@@ -68,7 +55,7 @@ $ yarn test
 Generate the code coverage report:
 
 ```sh
-$ yarn coverage
+$ npm run coverage
 ```
 
 ### Report Gas
@@ -76,7 +63,7 @@ $ yarn coverage
 See the gas usage per unit test and average gas per method call:
 
 ```sh
-$ REPORT_GAS=true yarn test
+$ REPORT_GAS=true npm run test
 ```
 
 ### Clean
@@ -84,7 +71,7 @@ $ REPORT_GAS=true yarn test
 Delete the smart contract artifacts, the coverage reports and the Hardhat cache:
 
 ```sh
-$ yarn clean
+$ npm run clean
 ```
 
 ## Syntax Highlighting
