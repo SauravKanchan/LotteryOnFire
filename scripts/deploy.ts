@@ -1,22 +1,23 @@
-import { Contract, ContractFactory } from "ethers";
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-// When running the script with `hardhat run <script>` you'll find the Hardhat
-// Runtime Environment's members available in the global scope.
 import { ethers } from "hardhat";
+import { LotteryOnFire__factory, LotteryOnFire } from "../typechain";
 
 async function main(): Promise<void> {
-  // Hardhat always runs the compile task when running scripts through it.
-  // If this runs in a standalone fashion you may want to call compile manually
-  // to make sure everything is compiled
-  // await run("compile");
+  const [deployer, signer] = await ethers.getSigners();
+  console.log(`Deploying contracts with the account ${deployer.address}`);
 
-  // We get the contract to deploy
-  const Greeter: ContractFactory = await ethers.getContractFactory("Greeter");
-  const greeter: Contract = await Greeter.deploy("Hello, Buidler!");
-  await greeter.deployed();
+  const balance = await deployer.getBalance();
+  console.log(`Account balance: ${ethers.utils.formatEther(balance.toString())}`);
 
-  console.log("Greeter deployed to: ", greeter.address);
+  const Lottery: LotteryOnFire__factory = (await ethers.getContractFactory("LotteryOnFire")) as LotteryOnFire__factory;
+  const lottery: LotteryOnFire = await Lottery.deploy();
+  await lottery.deployed();
+
+  console.log("Lottery On Fire deployed to:", lottery.address);
+
+  let tx = await lottery.transfer(signer.address, ethers.utils.parseEther("1"));
+  console.log("Created transaction for transfer:", tx.hash);
+  await tx.wait();
+  console.log("Transaction mined");
 }
 
 // We recommend this pattern to be able to use async/await everywhere

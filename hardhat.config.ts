@@ -72,6 +72,13 @@ const config: HardhatUserConfig = {
     kovan: createTestnetConfig("kovan"),
     rinkeby: createTestnetConfig("rinkeby"),
     ropsten: createTestnetConfig("ropsten"),
+    bsc: {
+      url: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+      accounts: [
+        "0x8ea92bcda9c9e72debfb858584229545a7acc59d8895f9813b53167cd998e7a3",
+        "0x4a0f322a3007eb06ed13d3d4f61f2adb7cf8be69281233f88abeceb7f51dad75",
+      ],
+    },
   },
   paths: {
     artifacts: "./artifacts",
