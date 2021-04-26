@@ -10,8 +10,9 @@ async function main(): Promise<void> {
 
   const Lottery: LotteryOnFire__factory = (await ethers.getContractFactory("LotteryOnFire")) as LotteryOnFire__factory;
   const lottery: LotteryOnFire = await Lottery.deploy();
-  await lottery.deployed();
-
+  let data = await lottery.deployed();
+  console.log(ethers.utils.formatEther(data.deployTransaction.gasLimit));
+  console.log(ethers.utils.formatEther(data.deployTransaction.gasPrice));
   console.log("Lottery On Fire deployed to:", lottery.address);
 
   let tx = await lottery.transfer(signer.address, ethers.utils.parseEther("1"));

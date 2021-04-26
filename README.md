@@ -1,7 +1,9 @@
 # Lottery On Fire
+
 This is a simple BEP-20 token which is similar to ERC-20 token. Deployed this token on Binance Smart Chain(BSC)
 
 In this token certain percentage of transaction is hold by the smart contract for future development.
+
 ### Pre Requisites
 
 Before running any command, make sure to install dependencies:
